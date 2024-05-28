@@ -1,7 +1,7 @@
-<!-- <button (click)="onSubmit">Submit</button>  --> <!-- 1.yol -->
+<!-- <input (keyup) = "onKeyUp($event)"/> --> <!-- 1.yol -->
 
+<!-- <input (keyup.enter) = "onKeyUp()" /> --> <!-- 2.yol -->
 
-<div (click)="onDivClick()" style = "width: 500px; height: 500px; background-color: red;">
-    <button name="btn1" (click)="onSubmit($event)">Submit</button>
-    <button name="btn2" (click)="onSubmit($event)">Submit</button>
-</div>
+<!--<input (keyup.enter)="onKeyUp($event)" /> --><!-- 1.yol Inputa ne yazılırsa console'da görüntüle--> 
+
+<input #email (keyup.enter)="onKeyUp(email.value)" /> <!-- 2.yol -->

@@ -12,17 +12,21 @@ import { Product } from "./product.model";
 export class ProductComponent {
     model: ProductRepository = new ProductRepository();
     
-   /* Event Binding */ 
-    // onSubmit() {
-    //     console.log('button was clicked'); // 1.yol
+    // onKeyUp($event: any) {   // 1.yol
+    //     if($event.keyCode === 13){ // Enter'a tıklandığı anda "Enter was Pressed" mesajı gelir
+    //         console.log('Enter was pressed');
+    //     }
     // }
-    onSubmit($event: any){
-        $event.stopPropagation(); // Sadece butona tıklandığında Event çalışsın
-        console.log('button was clicked');
-        console.log($event)
-    }
 
-    onDivClick(){ // Div'in herhangi bir noktasına tıklandığında Hem onSubmit(button was clicked) hem de onDivClick(div was clicked) çalışır. 
-        console.log('div was clicked')
+    // onKeyUp() { // 2.yol
+    //         console.log('Enter was pressed');
+    //     }
+
+    // onKeyUp($event: any) {
+    //     console.log($event.target.value); // 1.yol Inputa ne yazılırsa console'da görüntüle
+    // }
+
+    onKeyUp(email: any){
+        console.log(email); // 2.yol
     }
 }

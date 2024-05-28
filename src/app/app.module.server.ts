@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { ServerModule } from '@angular/platform-server';
 
 import { AppModule } from './app.module';
+import { ProductComponent } from './product.component';
 
 
 @NgModule({
@@ -9,6 +10,6 @@ import { AppModule } from './app.module';
     AppModule,
     ServerModule,
   ],
-  bootstrap: [],
+  bootstrap: [ProductComponent],
 })
 export class AppServerModule {}
