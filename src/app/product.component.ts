@@ -11,32 +11,18 @@ import { Product } from "./product.model";
 
 export class ProductComponent {
     model: ProductRepository = new ProductRepository();
-    disabled = true
-
-    getClasses(id: number): string {
-        let product = this.model.getProductsById(id);
-        return ((product?.price ?? 0) <= 1000 ? "bg-info": "bg-secondary") + " m-2 p-2";
+    
+   /* Event Binding */ 
+    // onSubmit() {
+    //     console.log('button was clicked'); // 1.yol
+    // }
+    onSubmit($event: any){
+        $event.stopPropagation(); // Sadece butona tıklandığında Event çalışsın
+        console.log('button was clicked');
+        console.log($event)
     }
 
-    product: Product | undefined = this.model.getProductsById(1);
-
-    getClassMap(id: number): Object{
-        let product = this.model.getProductsById(id);
-        return {
-            "bg-info": (product?.price ?? 0) <= 1000, 
-            "bg-secondary": (product?.price ?? 0) > 1000,
-            "text-center tx-white": product?.name == "Samsung S6"
-        }
-    }
-
-    color: string = (this.model.getProductsById(1)?.price ?? 0) <= 1000?"green":"red";
-    fontSize: string = "25px";
-
-    getStyles(id: number) {
-        let product = this.model.getProductsById(id);
-        return {
-            fontSize: "25px",
-            color: (product?.price ?? 0) <= 1000 ? "green" : "red"
-        }
+    onDivClick(){ // Div'in herhangi bir noktasına tıklandığında Hem onSubmit(button was clicked) hem de onDivClick(div was clicked) çalışır. 
+        console.log('div was clicked')
     }
 }
