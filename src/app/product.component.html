@@ -1,0 +1,41 @@
+<!-- *ngIf true veya false bekler. true ise alttaki şablonu çalıştır false ise çalıştırma-->
+
+<!-- 1.yol -->
+
+<!-- <div *ngIf = "model.getProducts().length > 0" class="bg-primary text-white m-2 p-2"> 
+    There are {{ model.getProducts().length }} products in the repository.
+</div> -->
+
+<!-- <div *ngIf = "model.getProducts().length == 0" class="bg-primary text-white m-2 p-2">
+    There are no products in the repository.
+</div> -->
+
+<!-- 2.yol -->
+<!-- true ise productList false ise noProduct -->
+<div *ngIf="model.getProducts().length > 0; then productList else noProduct" class="bg-primary text-white m-2 p-2">
+</div>
+
+<ng-template #productList>
+    <div class="bg-primary text-white m-2 p-2">
+        There are {{ model.getProducts().length }} products in the repository.
+    </div>
+
+</ng-template>
+
+<ng-template #noProduct>
+    <div class="bg-primary text-white m-2 p-2">
+        There are no products in the repository.
+    </div>
+
+</ng-template>
+
+<!-- 3.yol -->
+
+<!-- hidden true ise altındaki şablonu saklar. false ise görüntüler-->
+<div [hidden]="model.getProducts().length == 0" class="bg-primary text-white m-2 p-2">
+    There are {{ model.getProducts().length }} products in the repository.
+</div>
+
+<div [hidden]="model.getProducts().length != 0" class="bg-primary text-white m-2 p-2">
+    There are no products in the repository.
+</div>

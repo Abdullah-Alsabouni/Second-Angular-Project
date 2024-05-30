@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { SummaryPipe } from './summary.pipe';
 
 
+
 @NgModule({
   declarations: [
     ProductComponent,
