@@ -1,11 +1,10 @@
-<ul class="list-group m-5">
-    <!-- index, first, last, odd, even  ngFor'dan gelir-->
-    <li *ngFor="let product of model.getProducts(); index as i ; first as isFirst; last as isLast; odd as isOdd; even as isEven" class = "list-group-item">
-     <!-- index ngFor'dan gelen ürünlerin sırasını 0'dan başlayarak getirir-->
-        {{ i+1 }} - {{ product.name }}
-        <span *ngIf = "isFirst" class="bg bg-primary">First item</span>
-        <span *ngIf = "isLast" class="bg bg-success">Last item</span>
-        <span *ngIf = "isOdd" class="bg bg-danger">odd item</span>
-        <span *ngIf = "isEven" class="bg bg-warning">Even item</span>
-    </li>
-</ul>
+<div class="m-5">
+    <button class="btn btn-primary" (click)="addProduct()">Add Product</button>
+    <ul class = "list-group mt-2">
+        <li *ngFor = "let product of model.getProducts();" class="list-group-item">
+            {{ product.name }}
+            <button class = "btn btn-danger" (click)="deleteProduct(product)">Delete</button>
+            <button class = "btn btn-warning" (click)="updateProduct(product)">Update</button>
+        </li>
+    </ul>
+</div>
