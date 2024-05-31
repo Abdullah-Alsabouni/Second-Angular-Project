@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProductComponent } from './product.component';
 import { FormsModule } from '@angular/forms';
 import { SummaryPipe } from './summary.pipe';
+import { CommonModule } from '@angular/common';
 
 
 

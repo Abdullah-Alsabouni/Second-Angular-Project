@@ -1,13 +1,11 @@
-<div class="bg-primary m-2 p-2" [ngSwitch]="model.getProductCount()">
-    <span *ngSwitchCase="0">There are no products</span>
-    <span *ngSwitchCase="1">There are 1 product</span>
-    <span *ngSwitchCase="2">There are 2 products</span> <!-- 2 ürün varsa -->
-    <span *ngSwitchDefault>There are many products</span> <!-- 2 den fazla ürün varsa-->
-</div>
-
-<div class = "bg-info m-2 p-2" [ngSwitch]="model.getProductsById(3)?.name" > <!-- Samsung S8-->
-    <span *ngSwitchCase="productName">Samsung S6</span> <!-- productName product.component.ts'te ilk elemanı çağırıyor(getProductsById(1))-->
-    <span *ngSwitchCase="'Samsung S7'">Samsung S7</span>
-    <span *ngSwitchCase="'Samsung S8'">Samsung S8</span>
-    <span *ngSwitchDefault>Other Product</span>
-</div>
+<ul class="list-group m-5">
+    <!-- index, first, last, odd, even  ngFor'dan gelir-->
+    <li *ngFor="let product of model.getProducts(); index as i ; first as isFirst; last as isLast; odd as isOdd; even as isEven" class = "list-group-item">
+     <!-- index ngFor'dan gelen ürünlerin sırasını 0'dan başlayarak getirir-->
+        {{ i+1 }} - {{ product.name }}
+        <span *ngIf = "isFirst" class="bg bg-primary">First item</span>
+        <span *ngIf = "isLast" class="bg bg-success">Last item</span>
+        <span *ngIf = "isOdd" class="bg bg-danger">odd item</span>
+        <span *ngIf = "isEven" class="bg bg-warning">Even item</span>
+    </li>
+</ul>
