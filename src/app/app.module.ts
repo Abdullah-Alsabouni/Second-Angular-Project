@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { SummaryPipe } from './summary.pipe';
 import { CommonModule } from '@angular/common';
 import { InputEmailDirective } from './input-email.directive';
+import { AdminProductsComponent } from './admin-products/admin-products.component';
 
 
 
@@ -13,7 +14,8 @@ import { InputEmailDirective } from './input-email.directive';
   declarations: [
     ProductComponent,
     SummaryPipe,
-    InputEmailDirective
+    InputEmailDirective,
+    AdminProductsComponent
   ],
   imports: [
     BrowserModule,
