@@ -14,4 +14,5 @@ export class AdminProductsComponent {
     this.model = new ProductRepository();
     this.products = this.model.getProducts();
   }
+  selectedProduct: string = 'None'
 }
