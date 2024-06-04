@@ -10,15 +10,24 @@ import { Product } from '../product.model';
 export class AdminProductsComponent {
   products: Product[] = [];
   model: ProductRepository;
-  selectedProduct: string | null = null;
+  selectedProduct: Product | null = null;
 
   constructor() {
     this.model = new ProductRepository();
-    // Assigning the products from the model to the component property
     this.products = this.model.getProducts();
   }
 
   getSelected(product: Product): boolean {
-    return product.name === this.selectedProduct;
+    return product === this.selectedProduct;
+  }
+
+  editProduct(product: Product): void {
+    this.selectedProduct = product;
+  }
+
+  updateProductName(name: string): void {
+    if (this.selectedProduct) {
+      this.selectedProduct.name = name;
+    }
   }
 }
